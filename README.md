@@ -1,66 +1,39 @@
-## Foundry
+# Ethernaut Reproduction — 使用说明
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+---
 
-Foundry consists of:
+## 事前准备 / Preparations
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+1. Foundry 环境配置
 
-## Documentation
+	 *Foundry environment setup.*
 
-https://book.getfoundry.sh/
+2. 测试链账户准备（Metamask 钱包，需有余额）
 
-## Usage
+	 *Testnet account setup (Metamask wallet with sufficient balance).* 
 
-### Build
+---
 
-```shell
-$ forge build
-```
+## 参考建议 / Recommendations
 
-### Test
+- `docs` 文件总结每一关卡的攻关思路。
 
-```shell
-$ forge test
-```
+	*The `docs` folder summarizes the approach for each level.*
 
-### Format
+- 使用 `interface.sol` + `attack.sol` + `levelxx.t.sol` 的解题路径：
 
-```shell
-$ forge fmt
-```
+	EOA -> 攻击合约 -> 被攻击合约（接近现实情况，适合验证攻击思路）。
 
-### Gas Snapshots
+	*Solution path using `interface.sol` + `attack.sol` + `levelxx.t.sol`: EOA -> attack contract -> target contract (closer to real-world scenario and useful to validate the exploit approach).* 
 
-```shell
-$ forge snapshot
-```
+- 使用 `interface.sol` + `levelxx.s.sol` 的解题路径：
 
-### Anvil
+	EOA -> 被攻击合约（用于满足 Ethernaut 关卡要求，EOA 直接与合约交互）。
 
-```shell
-$ anvil
-```
+	*Solution path using `interface.sol` + `levelxx.s.sol`: EOA -> target contract (intended to satisfy Ethernaut level requirements where the EOA interacts directly with the contract).* 
 
-### Deploy
+- `levels` 文件夹包含 Ethernaut 关卡原始合约（被攻击合约）。
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+	*The `levels` folder contains the original Ethernaut level contracts (target contracts).* 
 
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+---

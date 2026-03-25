@@ -24,7 +24,7 @@ contract Level01Test is Test {
     function testAttack() public {
         vm.startPrank(player);
 
-        attacker.attack{value: 0.001 ether}();//调用 攻击合约的攻击函数，并向攻击发送0.001 ether
+        attacker.attack{value: 0.001 ether}();//调用 攻击合约的攻击函数，并向攻击者发送0.001 ether
 
         // 验证1：是否成为 owner
         assertEq(target.owner(), address(attacker));
