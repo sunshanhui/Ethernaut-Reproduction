@@ -6,7 +6,7 @@ contract FalloutScript is Script {
 
     function run() external {
         uint256 privateKey = vm.envUint("PRIVATE_KEY");
-        address targetAddr = 0x5C301E7cb7fb64efC104A5f73867Afc754793F8D; // 替换为实例地址
+        address targetAddr = 0xB70d81327359F0C44aBf561C97478a84C2Eb8d3A; // 替换为实例地址
 
         vm.startBroadcast(privateKey);
         IFallout target = IFallout(targetAddr);
