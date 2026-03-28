@@ -11,7 +11,6 @@ contract FalloutScript is Script {
         vm.startBroadcast(privateKey);
         IFallout target = IFallout(targetAddr);
         target.Fal1out();
-
         vm.stopBroadcast();
     }
 }
