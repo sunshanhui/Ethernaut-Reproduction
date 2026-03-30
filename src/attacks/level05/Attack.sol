@@ -9,6 +9,7 @@ contract TokenAttack {
         target = IToken(_target);
     }
 
+
     function attack() public {
         // 假设初始余额是 20
         // 这里传 21 -> 下溢

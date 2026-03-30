@@ -7,7 +7,7 @@ import "../../src/attacks/level05/Attack.sol";
 
 contract TokenTest is Test {
     Token target;
-    Attack attack;
+    TokenAttack attack;
     address player = address(1);
 
     function setUp() public {
